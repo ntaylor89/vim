@@ -11,6 +11,7 @@ set guioptions-=r "remove right hand scroll bar
 set rtp+=$GOROOT/misc/vim
 set rtp+=/usr/local/share/vim
 au Filetype go set equalprg=gofmt
+au Filetype go set makeprg=go\ build
 au Filetype go set shiftwidth=8
 
 "set supertab to use omnicomplete
