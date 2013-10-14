@@ -27,7 +27,10 @@ Other Plugins
 * Go -the go runtime provides plugins for the Go programming language. 
     * the GOROOT environment var must be set 
 
-
+FONTS
+=============
+The Linux fonts rely on the Inconsolata font which can be downloaded from the link below
+* http://www.levien.com/type/myfonts/inconsolata.html
 
 
 
