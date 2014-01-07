@@ -30,7 +30,6 @@ set incsearch
 set equalprg=indent\ -kr
 set spell
 
-set guifont=Menlo\ Regular:h18
 
 set ch=2		" Make command line two lines high
 set mousehide		" Hide the mouse when typing text
@@ -53,3 +52,15 @@ filetype on
 syntax on
 filetype plugin on
 filetype indent on
+
+
+if has("win32")
+        set guifont=Consolas 18
+endif
+if has("unix")
+    if system('uname')=~'Darwin'
+        set guifont=Menlo\ Regular:h18
+    else
+        set guifont=Inconsolata\ Medium\ 18 
+    endif
+endif
