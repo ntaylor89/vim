@@ -1,18 +1,11 @@
 "Author Shane K. Panter
 "shane@foundationcode.com
+"spanter@cs.boisestate.edu"
 
 "General GUI stuff
 set guioptions-=m "remove the menu bar
 set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
-
-"Set custom language stuff here
-"Go stuff
-set rtp+=$GOROOT/misc/vim
-set rtp+=/usr/local/share/vim
-au Filetype go set equalprg=gofmt
-au Filetype go set makeprg=go\ build
-au Filetype go set shiftwidth=8
 
 "set supertab to use omnicomplete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -21,7 +14,7 @@ let g:SuperTabDefaultCompletionType = "context"
 "set up ctags and tlist
 let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
-map <F4> :TlistToggle<cr>
+map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
 
 set linebreak
@@ -56,7 +49,7 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-syntax on
 filetype on
+syntax on
 filetype plugin on
 filetype indent on

@@ -9,7 +9,7 @@ then
     mkdir ~/github
 fi
 echo "setup .vim dir"
-mkdir -p ~/.vim/{autoload,doc,plugin}
+mkdir -p ~/.vim/{autoload,doc,plugin,syntax,etc,lib}
 
 
 #Install supertab
@@ -29,29 +29,40 @@ cd tcomment_vim
 ln -s `pwd`/autoload/tcomment.vim ~/.vim/autoload
 ln -s `pwd`/doc/tcomment.txt ~/.vim/doc
 ln -s `pwd`/plugin/tcomment.vim ~/.vim/plugin
+ln -s `pwd`/etc/tpl_tcomment.vim ~/.vim/etc
 cd ..
 
-#Install taglist 
-echo "--> Downloading and installing taglist"
+#Install tagbar 
+echo "--> Downloading and installing tagbar"
 cd ~/github
-git clone https://github.com/shanep/taglist.vim.git
-cd taglist.vim
-ln -s `pwd`/doc/taglist.txt ~/.vim/doc
-ln -s `pwd`/plugin/taglist.vim ~/.vim/plugin
+git clone https://github.com/majutsushi/tagbar
+cd tagbar
+ln -s `pwd`/autoload/tagbar.vim ~/.vim/autoload
+ln -s `pwd`/doc/tagbar.txt ~/.vim/doc
+ln -s `pwd`/plugin/tagbar.vim ~/.vim/plugin
+ln -s `pwd`/syntax/tagbar.vim ~/.vim/syntax
 cd ..
 
-#Install gocode
-if [ -d ${GOROOT:?"GOROOT needs to be set to your go install"} ]
-then
-    echo "--> Installing gocode"
-    GOCODE="github.com/nsf/gocode"
-    go get -u $GOCODE
-    #go get installs libs in the first path listed in GOPATH
-    IFS=:
-    read -ra first rest <<< "$GOPATH"
-    cd $first/src/$GOCODE/vim/
-    ./update.bash
-fi
+#Install nerdtree 
+echo "--> Downloading and installing nerdtree"
+cd ~/github
+git clone https://github.com/scrooloose/nerdtree
+cd nerdtree 
+ln -s `pwd`/autoload/nerdtree.vim ~/.vim/autoload
+ln -s `pwd`/doc/NERD_tree.txt ~/.vim/doc
+ln -s `pwd`/lib ~/.vim/lib
+ln -s `pwd`/nerdtree_plugin ~/.vim/nerdtree_plugin
+ln -s `pwd`/plugin/NERD_tree.vim ~/.vim/plugin
+ln -s `pwd`/syntax/nerdtree.vim ~/.vim/syntax
+cd ..
+
+#Install DoxygenToolkit
+echo "--> Downloading and installing DoxygenToolkit"
+cd ~/github
+git clone https://github.com/vim-scripts/DoxygenToolkit.vim
+cd DoxygenToolkit.vim
+ln -s `pwd`/plugin/DoxygenToolkit.vim ~/.vim/plugin
+cd ..
 
 
 
