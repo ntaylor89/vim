@@ -15,6 +15,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
 map <F4> :TagbarToggle<cr>
+map <F6> :make<cr>
 map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
 
 set linebreak

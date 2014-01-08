@@ -12,20 +12,12 @@ so we are always running the latest and greatest code
 
 Installed Plugins
 =================
-* supertab - allows omnicomplete to run by just hitting the tab button
-    * https://github.com/ervandew/supertab
-* tcomment - allows block commenting of code 
-    * https://github.com/tomtom/tcomment_vim
-* taglist - allows a hierarchal view of the code you are working on  
-    * https://github.com/shanep/taglist.vim
-* gocode - omnicomplete for go
-    * https://github.com/nsf/gocode
+* supertab 
+* tcomment 
+* tagbar
+* nerdtree
+* DoxygenToolkit
     
-
-Other Plugins
-=============
-* Go -the go runtime provides plugins for the Go programming language. 
-    * the GOROOT environment var must be set 
 
 FONTS
 =============
