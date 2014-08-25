@@ -57,19 +57,6 @@ ln -s `pwd`/plugin/tagbar.vim ~/.vim/plugin
 ln -s `pwd`/syntax/tagbar.vim ~/.vim/syntax
 cd ..
 
-#Install nerdtree 
-echo "--> Downloading and installing nerdtree"
-cd ~/github
-git_update nerdtree https://github.com/scrooloose/nerdtree
-cd nerdtree 
-ln -s `pwd`/autoload/nerdtree.vim ~/.vim/autoload
-ln -s `pwd`/doc/NERD_tree.txt ~/.vim/doc
-ln -s `pwd`/lib/nerdtree ~/.vim/lib/nerdtree
-ln -s `pwd`/nerdtree_plugin ~/.vim/nerdtree_plugin
-ln -s `pwd`/plugin/NERD_tree.vim ~/.vim/plugin
-ln -s `pwd`/syntax/nerdtree.vim ~/.vim/syntax
-cd ..
-
 #Install DoxygenToolkit
 echo "--> Downloading and installing DoxygenToolkit"
 cd ~/github

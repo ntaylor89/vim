@@ -4,7 +4,7 @@
 
 "General GUI stuff
 set guioptions-=m "remove the menu bar
-set guioptions-=T "remove the toolbar
+" set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
 
 "set supertab to use omnicomplete
@@ -17,6 +17,10 @@ let Tlist_WinWidth = 50
 map <F4> :TagbarToggle<cr>
 map <F6> :make<cr>
 map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
+
+"File type stuff
+au Filetype java set makeprg=javac\ %
+
 
 set linebreak
 set nu
