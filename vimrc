@@ -4,7 +4,7 @@
 
 "General GUI stuff
 set guioptions-=m "remove the menu bar
-" set guioptions-=T "remove the toolbar
+set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
 
 "set supertab to use omnicomplete
