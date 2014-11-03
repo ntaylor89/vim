@@ -7,25 +7,25 @@ and install it into ~/.vim/bundles which pathogen with then add
 to your vim runtime files.
 
 
-FONTS
+Fonts
 -----
 The Linux fonts rely on the Inconsolata font which can be downloaded from the link below
-* http://www.levien.com/type/myfonts/inconsolata.html
-
 If you are running Fedora you can install the Inconsolata fonts with yum.
+
+* http://www.levien.com/type/myfonts/inconsolata.html
 * su -c yum install levien-inconsolata-fonts.noarch 
 
 
 Plugins
 =======
 Below is a brief description of each plugin and how they are configured in my vimrc.
-Unless otherwise specified all the default key bindings for each plugin are used. 
-Check the link to the plugin repository for more information on any key bindings that
-the plugin may use.
+Unless otherwise specified the default key bindings for each plugin are used. 
+Check the link to the plugin repository for more information on plugin features and 
+any key bindings that the plugin may use.
 
 supertab
 --------
-Allows you to use the [Tab] key for insert completion. This is bound to omnicomplete, by pressing 
+Allows you to use the [Tab] key for symbol completion. This is bound to omnicomplete, by pressing 
 [Tab] [Tab] while typing a symbol omnicomplete will be called to complete the symbol.
 
 * https://github.com/ervandew/supertab.git 
