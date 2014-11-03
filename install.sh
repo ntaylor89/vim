@@ -1,11 +1,14 @@
 #!/bin/bash
 
+#All plugins that need to be installed 
 plugins=("https://github.com/ervandew/supertab.git" \
          "https://github.com/tomtom/tcomment_vim.git" \
          "https://github.com/majutsushi/tagbar" \
          "https://github.com/vim-scripts/DoxygenToolkit.vim" \
          "https://github.com/altercation/vim-colors-solarized.git" \
-
+         "https://github.com/kien/ctrlp.vim" \
+         "https://github.com/Lokaltog/powerline" \
+         "https://github.com/scrooloose/syntastic.git" \
         ) 
 
 
@@ -24,27 +27,45 @@ setup() {
 #using the pathogen plugin manager all we need is 
 #the autoload and bundle directories. 
 clean(){
-    echo "Moving any old vimrc's to vimrc_old"
-    if [ -e ~/.vimrc ]
-    then
-        echo "Saving off old vimrc"
-        mv -b ~/.vimrc ~/.vimrc_old
-    fi
+    echo "removing old .vimrc"
+    rm -f ~/.vimrc
     echo "Removing old .vim folder"
     rm -rf ~/.vim
 }
 
-clean
-setup
-cd ~/.vim/bundle
+#Checks if git is currently installed so we can download
+#the plugins we abort the install if git is not installed
+check_git(){
+    git --version
+    if [ $? -eq 127 ]
+    then
+        echo "Git is not installed or is not on your path. Install git and try again"
+        exit 0;
+    fi
+}
 
-for i in ${plugins[@]}; do
-    echo "--> Downloading and installing plugin ${i}"
-    git clone ${i}
-done 
+echo "WARNING: This install script will delete your .vimrc and .vim files"
+echo "Please back them up if you would like to save any of your settings"
+read -p "Continue with install? " -n 1 -r
+echo
 
-echo "********************************************************"
-echo "Note if you are on linux you should install nicer fonts"
-echo "see https://github.com/shanep/vim/ for more information on fonts"
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    check_git
+    clean
+    setup
+    cd ~/.vim/bundle
+    for i in ${plugins[@]}; do
+        echo "--> Downloading and installing plugin ${i}"
+        git clone ${i}
+    done 
+
+    echo "********************************************************"
+    echo "--> https://github.com/shanep/vim/ for more information on fonts"
+    echo "--> update the help files with :Helptags"
+else
+    echo "Aborted install!!!"
+fi
+
 exit 0
 
