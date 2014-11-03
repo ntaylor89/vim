@@ -2,7 +2,10 @@
 "shane@foundationcode.com
 "spanter@cs.boisestate.edu"
 
-"General GUI stuff
+"Load up pathogen so we can set any plugin options later
+execute pathogen#infect()
+
+"setup options for gvim GUI 
 set guioptions-=m "remove the menu bar
 set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
@@ -18,10 +21,7 @@ map <F4> :TagbarToggle<cr>
 map <F6> :make<cr>
 map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
 
-"File type stuff
-au Filetype java set makeprg=javac\ %
-
-
+"general code formating options
 set linebreak
 set nu
 set expandtab
@@ -32,9 +32,9 @@ set autoindent
 set hlsearch
 set incsearch
 
+"rebind equal (=) to point to indent using KR formating
 set equalprg=indent\ -kr
 set spell
-
 
 set ch=2		" Make command line two lines high
 set mousehide		" Hide the mouse when typing text
@@ -54,7 +54,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 
 filetype on
-syntax on
+syntax enable
 filetype plugin on
 filetype indent on
 
@@ -70,4 +70,8 @@ if has("unix")
     endif
 endif
 
-execute pathogen#infect()
+"Use the Solarized dark color scheme 
+set background=dark "set background=light
+colorscheme solarized 
+
+
