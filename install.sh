@@ -1,70 +1,47 @@
-#1 is the dir
-#2 is the github url
-git_update() {
-    if [ -d $1 ] 
+#!/bin/bash
+
+plugins=("https://github.com/ervandew/supertab.git" \
+         "https://github.com/tomtom/tcomment_vim.git" \
+         "https://github.com/majutsushi/tagbar" \
+         "https://github.com/vim-scripts/DoxygenToolkit.vim" \
+        ) 
+
+
+#Sets up the vimrc to point to the version in your git folder
+#Removes your .vim folder and any old plugins that may be there
+setup_vimrc() {
+    echo "Moving any old vimrc's to vimrc_old"
+    if [ -e ~/.vimrc ]
     then
-        cd $1
-        git pull
-        cd ..
-        return
+        echo "Saving off old vimrc"
+        mv -b ~/.vimrc ~.vimrc_old
     fi
-    git clone $2
+    echo "Removing old .vim folder"
+    rm -rf ~/.vim
+    echo "Sym linking vimrc to git repo"
+    ln -s `pwd`/vimrc ~/.vimrc
 }
 
-#!/bin/bash
-echo "Installing vimrc"
-rm -f ~/.vimrc
-rm -rf ~/.vim
-ln -s `pwd`/vimrc ~/.vimrc
+#Sets up all the basic directories since we are 
+#using the pathogen plugin manager all we need is 
+#the autoload and bundle directories. 
+setup_dirs(){
+    echo "setup .vim dir and pathogen"
+    mkdir -p ~/.vim/{autoload,bundle}
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+}
 
-#Create dir to contain all plugin source
-if [ ! -d ~/github ] 
-then
-    mkdir ~/github
-fi
-echo "setup .vim dir"
-mkdir -p ~/.vim/{autoload,doc,plugin,syntax,etc,lib}
+setup_dirs
+setup_vimrc
+cd ~/.vim/bundle
 
+for i in ${plugins[@]}; do
+    echo "--> Downloading and installing plugin ${i}"
+    git clone ${i}
+done 
 
-#Install supertab
-echo "--> Downloading and installing supertab"
-cd ~/github
-git_update supertab https://github.com/ervandew/supertab.git
-cd supertab
-ln -s `pwd`/doc/supertab.txt ~/.vim/doc
-ln -s `pwd`/plugin/supertab.vim ~/.vim/plugin 
-cd .. 
-
-#Install tcomment 
-echo "--> Downloading and installing tcomment"
-cd ~/github
-git_update tcomment_vim https://github.com/tomtom/tcomment_vim.git
-cd tcomment_vim
-ln -s `pwd`/autoload/tcomment.vim ~/.vim/autoload
-ln -s `pwd`/doc/tcomment.txt ~/.vim/doc
-ln -s `pwd`/plugin/tcomment.vim ~/.vim/plugin
-ln -s `pwd`/etc/tpl_tcomment.vim ~/.vim/etc
-cd ..
-
-#Install tagbar 
-echo "--> Downloading and installing tagbar"
-cd ~/github
-git_update tagbar https://github.com/majutsushi/tagbar
-cd tagbar
-ln -s `pwd`/autoload/tagbar.vim ~/.vim/autoload
-ln -s `pwd`/doc/tagbar.txt ~/.vim/doc
-ln -s `pwd`/plugin/tagbar.vim ~/.vim/plugin
-ln -s `pwd`/syntax/tagbar.vim ~/.vim/syntax
-cd ..
-
-#Install DoxygenToolkit
-echo "--> Downloading and installing DoxygenToolkit"
-cd ~/github
-git_update DoxygenToolkit.vim https://github.com/vim-scripts/DoxygenToolkit.vim
-cd DoxygenToolkit.vim
-ln -s `pwd`/plugin/DoxygenToolkit.vim ~/.vim/plugin
-cd ..
-
-
-echo "DONE"
+echo "Finished install"
+echo "Note if you are on linux you should install nicer fonts"
+echo "see https://github.com/shanep/vim/ for more information on fonts"
+exit 0
 

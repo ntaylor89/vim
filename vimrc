@@ -69,3 +69,5 @@ if has("unix")
         set guifont=Inconsolata\ Medium\ 18 
     endif
 endif
+
+execute pathogen#infect()
