@@ -53,7 +53,7 @@ check_git(){
 
 echo "WARNING: This install script will delete your .vimrc and .vim files"
 echo "Please back them up if you would like to save any of your settings"
-read -p "Continue with install? " -n 1 -r
+read -p "Continue with install [Yy]? " -n 1 -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]
