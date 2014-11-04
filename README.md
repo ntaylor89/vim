@@ -6,15 +6,7 @@ manage all the plugins. The install script with fetch each plugin
 and install it into ~/.vim/bundles which pathogen with then add
 to your vim runtime files.
 
-I personally prefer gvim which may not be installed by default depending
-on your linux distribution.
-
-On Fedora you can install gvim with the command below (assuming 64 bit!)
-* su -c 'yum install vim-X11.x86_64'
-
-
-Fonts
------
+#Fonts
 The Linux fonts rely on the Inconsolata font which can be downloaded from the link below
 If you are running Fedora you can install the Inconsolata fonts with yum.
 
