@@ -5,10 +5,13 @@
 "Load up pathogen so we can set any plugin options later
 execute pathogen#infect()
 
-"setup options for gvim GUI 
+"setup options for gvim GUI
 set guioptions-=m "remove the menu bar
 set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
+
+"rebind eql to use indent
+set equalprg=indent\ -kr\ --no-tabs
 
 "set supertab to use omnicomplete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -21,23 +24,29 @@ map <F4> :TagbarToggle<cr>
 map <F6> :make<cr>
 map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
 
+"Bind NerdTree to F5
+map <F5> :NERDTreeToggle<cr>
+
+"Change the default mapping to invoke CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 "general code formating options
 set linebreak
 set nu
 set expandtab
 set tabstop=8
 set softtabstop=4
-set shiftwidth=4 
+set shiftwidth=4
 set autoindent
 set hlsearch
 set incsearch
 
-"rebind equal (=) to point to indent using KR formating
-set equalprg=indent\ -kr
-set spell
 
-set ch=2		" Make command line two lines high
-set mousehide		" Hide the mouse when typing text
+" Make command line two lines high
+set ch=2
+" Hide the mouse when typing text
+set mousehide
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -60,18 +69,27 @@ filetype indent on
 
 
 if has("win32")
-        set guifont=Consolas 18
+    set guifont=Consolas 18
 endif
 if has("unix")
     if system('uname')=~'Darwin'
         set guifont=Menlo\ Regular:h18
     else
-        set guifont=Inconsolata\ Medium\ 18 
+        set guifont=Inconsolata\ Medium\ 18
     endif
 endif
 
-"Use the Solarized dark color scheme 
-set background=dark "set background=light
-colorscheme solarized 
+"Kill evil trailing white space
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+autocmd FileWritePre  * :call TrimWhiteSpace()
+autocmd FileAppendPre * :call TrimWhiteSpace()
+autocmd FileWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre   * :call TrimWhiteSpace()
 
 
+"Turn on vim-airline features
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1

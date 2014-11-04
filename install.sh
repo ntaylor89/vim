@@ -1,15 +1,17 @@
 #!/bin/bash
 
-#All plugins that need to be installed 
+#All plugins that need to be installed
 plugins=("https://github.com/ervandew/supertab.git" \
          "https://github.com/tomtom/tcomment_vim.git" \
          "https://github.com/majutsushi/tagbar" \
          "https://github.com/vim-scripts/DoxygenToolkit.vim" \
          "https://github.com/altercation/vim-colors-solarized.git" \
          "https://github.com/kien/ctrlp.vim" \
-         "https://github.com/Lokaltog/powerline" \
+         "https://github.com/bling/vim-airline" \
          "https://github.com/scrooloose/syntastic.git" \
-        ) 
+         "https://github.com/tpope/vim-fugitive" \
+         "https://github.com/scrooloose/nerdtree" \
+        )
 
 
 #Sets up the vimrc to point to the version in your git folder
@@ -18,17 +20,22 @@ setup() {
     echo "Sym linking vimrc to git repo"
     ln -s `pwd`/vimrc ~/.vimrc
 
+    echo "Sym linking to gvimrc to git repo"
+    ln -s `pwd`/gvimrc ~/.gvimrc
+
     echo "setup .vim dir and pathogen"
     mkdir -p ~/.vim/{autoload,bundle}
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 }
 
-#Sets up all the basic directories since we are 
-#using the pathogen plugin manager all we need is 
-#the autoload and bundle directories. 
+#Sets up all the basic directories since we are
+#using the pathogen plugin manager all we need is
+#the autoload and bundle directories.
 clean(){
     echo "removing old .vimrc"
     rm -f ~/.vimrc
+    echo "removing old .gvimrc"
+    rm -f ~/.gvimrc
     echo "Removing old .vim folder"
     rm -rf ~/.vim
 }
@@ -58,7 +65,7 @@ then
     for i in ${plugins[@]}; do
         echo "--> Downloading and installing plugin ${i}"
         git clone ${i}
-    done 
+    done
 
     echo "********************************************************"
     echo "--> https://github.com/shanep/vim/ for more information on fonts"
@@ -68,4 +75,3 @@ else
 fi
 
 exit 0
-
