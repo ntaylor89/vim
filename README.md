@@ -6,7 +6,7 @@ manage all the plugins. The install script with fetch each plugin
 and install it into ~/.vim/bundles which pathogen with then add
 to your vim runtime files.
 
-#Fonts
+###Fonts
 The Linux fonts rely on the Inconsolata font which can be downloaded from the link below
 If you are running Fedora you can install the Inconsolata fonts with yum.
 
