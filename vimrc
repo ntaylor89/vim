@@ -10,9 +10,6 @@ set guioptions-=m "remove the menu bar
 set guioptions-=T "remove the toolbar
 set guioptions-=r "remove right hand scroll bar
 
-"rebind eql to use indent
-set equalprg=indent\ -kr\ --no-tabs
-
 "set supertab to use omnicomplete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
@@ -34,10 +31,10 @@ let g:ctrlp_cmd = 'CtrlP'
 "general code formating options
 set linebreak
 set nu
-set expandtab
+set noexpandtab
 set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
 set autoindent
 set hlsearch
 set incsearch
@@ -69,19 +66,19 @@ filetype indent on
 
 
 if has("win32")
-    set guifont=Consolas 18
+	set guifont=Consolas 18
 endif
 if has("unix")
-    if system('uname')=~'Darwin'
-        set guifont=Menlo\ Regular:h18
-    else
-        set guifont=Inconsolata\ Medium\ 18
-    endif
+	if system('uname')=~'Darwin'
+		set guifont=Menlo\ Regular:h18
+	else
+		set guifont=Inconsolata\ Medium\ 18
+	endif
 endif
 
 "Kill evil trailing white space
 function! TrimWhiteSpace()
-    %s/\s\+$//e
+	%s/\s\+$//e
 endfunction
 
 autocmd FileWritePre  * :call TrimWhiteSpace()
