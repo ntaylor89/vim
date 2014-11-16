@@ -4,6 +4,9 @@
 
 "Load up pathogen so we can set any plugin options later
 execute pathogen#infect()
+"setup our leader key
+let mapleader = ","
+
 
 "setup options for gvim GUI
 set guioptions-=m "remove the menu bar
@@ -59,12 +62,6 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-filetype on
-syntax enable
-filetype plugin on
-filetype indent on
-
-
 if has("win32")
 	set guifont=Consolas 18
 endif
@@ -86,7 +83,9 @@ autocmd FileAppendPre * :call TrimWhiteSpace()
 autocmd FileWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre   * :call TrimWhiteSpace()
 
-
 "Turn on vim-airline features
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+
+filetype plugin indent on
+syntax on

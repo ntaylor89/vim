@@ -12,6 +12,7 @@ plugins=("https://github.com/ervandew/supertab.git" \
 	"https://github.com/tpope/vim-fugitive" \
 	"https://github.com/scrooloose/nerdtree" \
 	"https://github.com/vivien/vim-addon-linux-coding-style" \
+	"https://github.com/fatih/vim-go" \
 )
 
 
