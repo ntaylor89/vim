@@ -10,9 +10,11 @@ plugins=("https://github.com/ervandew/supertab.git" \
 	"https://github.com/bling/vim-airline" \
 	"https://github.com/scrooloose/syntastic.git" \
 	"https://github.com/tpope/vim-fugitive" \
+	"https://github.com/tpope/vim-surround" \
 	"https://github.com/scrooloose/nerdtree" \
 	"https://github.com/vivien/vim-addon-linux-coding-style" \
 	"https://github.com/fatih/vim-go" \
+        "https://github.com/SirVer/ultisnips" \
 )
 
 
