@@ -15,6 +15,7 @@ plugins=("https://github.com/ervandew/supertab.git" \
 	"https://github.com/vivien/vim-addon-linux-coding-style" \
 	"https://github.com/fatih/vim-go" \
         "https://github.com/SirVer/ultisnips" \
+        "https://github.com/editorconfig/editorconfig-vim.git" \
 )
 
 
