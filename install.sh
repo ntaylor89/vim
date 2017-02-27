@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #All plugins that need to be installed
-plugins=("https://github.com/ervandew/supertab.git" \
+plugins=("https://github.com/tlhr/anderson.vim.git" \
+	"https://github.com/ervandew/supertab.git" \
 	"https://github.com/tomtom/tcomment_vim.git" \
 	"https://github.com/majutsushi/tagbar" \
-	"https://github.com/vim-scripts/DoxygenToolkit.vim" \
 	"https://github.com/altercation/vim-colors-solarized.git" \
 	"https://github.com/kien/ctrlp.vim" \
 	"https://github.com/bling/vim-airline" \
@@ -12,12 +12,11 @@ plugins=("https://github.com/ervandew/supertab.git" \
 	"https://github.com/tpope/vim-fugitive" \
 	"https://github.com/tpope/vim-surround" \
 	"https://github.com/scrooloose/nerdtree" \
-	"https://github.com/vivien/vim-addon-linux-coding-style" \
-	"https://github.com/fatih/vim-go" \
-        "https://github.com/SirVer/ultisnips" \
-        "https://github.com/editorconfig/editorconfig-vim.git" \
+	"https://github.com/fatih/vim-ruby.git" \
+	"https://github.com/python-mode/python-mode.git" \
+  "https://github.com/SirVer/ultisnips" \
+  "https://github.com/editorconfig/editorconfig-vim.git" \
 )
-
 
 #Sets up the vimrc to point to the version in your git folder
 #Removes your .vim folder and any old plugins that may be there

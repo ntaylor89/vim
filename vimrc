@@ -7,12 +7,6 @@ execute pathogen#infect()
 "setup our leader key
 let mapleader = ","
 
-
-"setup options for gvim GUI
-set guioptions-=m "remove the menu bar
-set guioptions-=T "remove the toolbar
-set guioptions-=r "remove right hand scroll bar
-
 "set supertab to use omnicomplete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
@@ -35,18 +29,13 @@ let g:ctrlp_cmd = 'CtrlP'
 set linebreak
 set nu
 set noexpandtab
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set hlsearch
 set incsearch
-
-
-" Make command line two lines high
-set ch=2
-" Hide the mouse when typing text
-set mousehide
+set backspace=indent,eol,start
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -56,22 +45,6 @@ map! <S-Insert> <MiddleMouse>
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-if has("win32")
-	set guifont=Consolas 18
-endif
-if has("unix")
-	if system('uname')=~'Darwin'
-		set guifont=Menlo\ Regular:h18
-	else
-		set guifont=Inconsolata\ Medium\ 18
-	endif
-endif
 
 "Kill evil trailing white space
 function! TrimWhiteSpace()
@@ -87,5 +60,19 @@ autocmd BufWritePre   * :call TrimWhiteSpace()
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
+"style options
+set guifont=Menlo\ Regular:h10
+syntax enable
+if has('gui_running')
+	colorscheme anderson
+else
+	set background=dark
+	colorscheme solarized
+endif
+
+"setup options for gvim GUI
+set guioptions-=m "remove the menu bar
+set guioptions-=T "remove the toolbar
+set guioptions-=r "remove right hand scroll bar
+
 filetype plugin indent on
-syntax on
