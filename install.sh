@@ -7,7 +7,8 @@ plugins=("https://github.com/tlhr/anderson.vim.git" \
 	"https://github.com/majutsushi/tagbar" \
 	"https://github.com/altercation/vim-colors-solarized.git" \
 	"https://github.com/kien/ctrlp.vim" \
-	"https://github.com/bling/vim-airline" \
+	"https://github.com/vim-airline/vim-airline.git" \
+	"https://github.com/vim-airline/vim-airline-themes.git" \
 	"https://github.com/scrooloose/syntastic.git" \
 	"https://github.com/tpope/vim-fugitive" \
 	"https://github.com/tpope/vim-surround" \

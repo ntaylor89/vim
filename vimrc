@@ -59,6 +59,7 @@ autocmd BufWritePre   * :call TrimWhiteSpace()
 "Turn on vim-airline features
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'solarized'
 
 "style options
 set guifont=Menlo\ Regular:h10
