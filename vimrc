@@ -28,7 +28,7 @@ let g:ctrlp_cmd = 'CtrlP'
 "general code formating options
 set linebreak
 set nu
-set noexpandtab
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
