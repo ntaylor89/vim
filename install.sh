@@ -13,7 +13,8 @@ plugins=("https://github.com/tlhr/anderson.vim.git" \
 	"https://github.com/tpope/vim-fugitive" \
 	"https://github.com/tpope/vim-surround" \
 	"https://github.com/scrooloose/nerdtree" \
-	"https://github.com/fatih/vim-ruby.git" \
+	"https://github.com/vim-ruby/vim-ruby.git" \
+  "https://github.com/pangloss/vim-javascript.git" \
 	"https://github.com/python-mode/python-mode.git" \
   "https://github.com/SirVer/ultisnips" \
   "https://github.com/editorconfig/editorconfig-vim.git" \
