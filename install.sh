@@ -1,7 +1,10 @@
 #!/bin/bash
 
 #All plugins that need to be installed
-plugins=("https://github.com/tlhr/anderson.vim.git" \
+
+# For a Wes Andersen color scheme:
+# "https://github.com/tlhr/anderson.vim.git"
+plugins=( \
 	"https://github.com/ervandew/supertab.git" \
 	"https://github.com/tomtom/tcomment_vim.git" \
 	"https://github.com/majutsushi/tagbar" \
@@ -15,7 +18,6 @@ plugins=("https://github.com/tlhr/anderson.vim.git" \
 	"https://github.com/scrooloose/nerdtree" \
 	"https://github.com/vim-ruby/vim-ruby.git" \
   "https://github.com/pangloss/vim-javascript.git" \
-	"https://github.com/python-mode/python-mode.git" \
   "https://github.com/SirVer/ultisnips" \
   "https://github.com/editorconfig/editorconfig-vim.git" \
 )
@@ -40,8 +42,6 @@ setup() {
 clean(){
 	echo "removing old .vimrc"
 	rm -f ~/.vimrc
-	echo "removing old .gvimrc"
-	rm -f ~/.gvimrc
 	echo "Removing old .vim folder"
 	rm -rf ~/.vim
 }
@@ -74,8 +74,6 @@ then
 	done
 
 	echo "********************************************************"
-	echo "--> https://github.com/shanep/vim/ for more information on fonts"
-	echo "--> update the help files with :Helptags"
 else
 	echo "Aborted install!!!"
 fi

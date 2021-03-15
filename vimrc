@@ -1,6 +1,5 @@
-"Author Shane K. Panter
-"shane@foundationcode.com
-"spanter@cs.boisestate.edu"
+"Author Nathan A Taylor
+"nathantaylor89@gmail.com
 
 "Load up pathogen so we can set any plugin options later
 execute pathogen#infect()
@@ -25,7 +24,7 @@ map <F5> :NERDTreeToggle<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-"general code formating options
+"general code formatting options
 set linebreak
 set nu
 set expandtab
@@ -62,14 +61,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'solarized'
 
 "style options
-set guifont=Menlo\ Regular:h10
 syntax enable
-if has('gui_running')
-	colorscheme anderson
-else
-	set background=dark
-	colorscheme solarized
-endif
+set background=dark
+"colorscheme solarized
 
 "setup options for gvim GUI
 set guioptions-=m "remove the menu bar
